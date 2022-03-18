@@ -1,0 +1,112 @@
+## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
+## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+
+## Configuration for Alacritty, the GPU enhanced terminal emulator.
+## It's a very basic and simple config file, for full configuration...
+## See, /usr/share/doc/alacritty/example/alacritty.yml
+## Import files (Colors, Fonts, Etc)
+import:
+  - ~/.config/i3/alacritty/colors.yml
+  - ~/.config/i3/alacritty/fonts.yml
+
+## Set environment variables
+env:
+  TERM: alacritty
+  WINIT_X11_SCALE_FACTOR: "1.0"
+
+## Terminal window settings
+window:
+  dimensions:
+    columns: 84
+    lines: 24
+
+  padding:
+    x: 10
+    y: 10
+
+  decorations: full
+  startup_mode: Windowed
+  dynamic_title: true
+
+  ## scrolling
+  history: 10000
+  multiplier: 3
+
+## Background opacity
+window.opacity: 1.0
+## Cursor
+cursor:
+  style:
+    shape: Block
+    blinking: On
+
+  unfocused_hollow: false
+
+## Live config reload
+live_config_reload: true
+
+## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
+## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+## Colors configuration
+colors:
+  name: Kasugano
+  author: Kori Ayakashi
+  primary:
+    background: "#11141a"
+    foreground: "#ffffff"
+  cursor:
+    text: "#1b1b1b"
+    cursor: "#ffffff"
+  normal:
+    black: "#3D3D3D"
+    red: "#6673BF"
+    green: "#3EA290"
+    yellow: "#B0EAD9"
+    blue: "#3b8ab8"
+    magenta: "#596196"
+    cyan: "#8292B2"
+    white: "#C8CACC"
+  bright:
+    black: "#4D4D4D"
+    red: "#899AFF"
+    green: "#52AD91"
+    yellow: "#98C9BB"
+    blue: "#477AB3"
+    magenta: "#7882BF"
+    cyan: "#95A7CC"
+    white: "#EDEFF2"
+## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
+## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+# Font configuration
+font:
+  # Normal (roman) font face
+  normal:
+    family: "JetBrainsMono Nerd Font"
+    #style: Regular
+
+  # Bold font face
+  bold:
+    family: "JetBrainsMono Nerd Font"
+    #style: Bold
+
+  # Italic font face
+  italic:
+    family: "JetBrainsMono Nerd Font"
+    #style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: "JetBrainsMono Nerd Font"
+    #style: Bold Italic
+
+  # Point size
+  size: 10
+  # Offset
+  #offset:
+  #  x: 0
+  #  y: 0
+  # Glyph offset
+  #glyph_offset:
+  #  x: 0
+  #  y: 0
+theme: Kasugano
