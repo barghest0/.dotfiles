@@ -49,54 +49,58 @@ live_config_reload: true
 ## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
 ## Colors configuration
 colors:
-  name: Kasugano
-  author: Kori Ayakashi
+  # Default colors
   primary:
-    background: "#11141a"
-    foreground: "#ffffff"
-  cursor:
-    text: "#1b1b1b"
-    cursor: "#ffffff"
+    background: "#1b1e2e"
+    foreground: "#EBEBEB"
+
+    # Cursor colors
+    text: "#EBEBEB"
+    cursor: "#EBEBEB"
+
+  # Normal colors
   normal:
-    black: "#3D3D3D"
-    red: "#6673BF"
-    green: "#3EA290"
-    yellow: "#B0EAD9"
-    blue: "#3b8ab8"
-    magenta: "#596196"
-    cyan: "#8292B2"
-    white: "#C8CACC"
+    black: "#0d0d0d"
+    red: "#a66666"
+    green: "#70E521"
+    yellow: "#FFC620"
+    blue: "#1BA6FA"
+    magenta: "#8763B8"
+    cyan: "#21DEEF"
+    white: "#EBEBEB"
+
+  # Bright colors
   bright:
-    black: "#4D4D4D"
-    red: "#899AFF"
-    green: "#52AD91"
-    yellow: "#98C9BB"
-    blue: "#477AB3"
-    magenta: "#7882BF"
-    cyan: "#95A7CC"
-    white: "#EDEFF2"
-## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
+    black: "#b3b3b3"
+    red: "#EBEBEB"
+    green: "#60E521"
+    yellow: "#FFD750"
+    blue: "#bfc9ff"
+    magenta: "#A578EA"
+    cyan: "#73FBF1"
+    white: "#b3b3b3"
+## Copyright () 2020-2021 Aditya Shakya <adi1090x@gmail.com>
 ## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
 # Font configuration
 font:
   # Normal (roman) font face
   normal:
-    family: "JetBrainsMono Nerd Font"
+    family: "FiraCode"
     #style: Regular
 
   # Bold font face
   bold:
-    family: "JetBrainsMono Nerd Font"
+    family: "FiraCode"
     #style: Bold
 
   # Italic font face
   italic:
-    family: "JetBrainsMono Nerd Font"
+    family: "FiraCode"
     #style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: "JetBrainsMono Nerd Font"
+    family: "FiraCode"
     #style: Bold Italic
 
   # Point size
@@ -109,4 +113,4 @@ font:
   #glyph_offset:
   #  x: 0
   #  y: 0
-theme: Kasugano
+theme: Argonaut
