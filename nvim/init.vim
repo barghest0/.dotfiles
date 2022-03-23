@@ -1,34 +1,38 @@
-:set number
-:set relativenumber
-:set autoindent
-:set tabstop=2
-:set shiftwidth=4
-:set smarttab
-:set softtabstop=4
-:set mouse=a
-:set noswapfile
-:set ma 
-:set encoding=UTF-8
-:set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+set number
+set relativenumber
+set autoindent
+set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set expandtab smarttab
+set mouse=a
+set noswapfile
+set complete+=spell
+set completeopt=longest,menuone
+set ma 
+set encoding=UTF-8
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 call plug#begin()
 
 "---------- APPEARANCE ----------
+" airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
 let g:airline#extensions#whitespace#enabled = 0
 
 " airline tabs
-let g:airline#extensions#tabline#enabled = 1         
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#fnamemod = ':t'   
-let g:airline#extensions#tabline#show_tab_count = 0 
-let g:airline#extensions#tabline#show_buffers = 1    
-let g:airline#extensions#tabline#tab_min_count = 2    
+let g:airline#extensions#tabline#enabled = 1           
+let g:airline#extensions#tabline#show_close_button = 0 
+let g:airline#extensions#tabline#tabs_label = ''       
+let g:airline#extensions#tabline#buffers_label = ''    
+let g:airline#extensions#tabline#fnamemod = ':t'       
+let g:airline#extensions#tabline#show_tab_count = 0    
+let g:airline#extensions#tabline#show_buffers = 0      
+let g:airline#extensions#tabline#tab_min_count = 2     
 let g:airline#extensions#tabline#show_splits = 0       
-let g:airline#extensions#tabline#show_tab_nr = 0        
+let g:airline#extensions#tabline#show_tab_nr = 0       
 let g:airline#extensions#tabline#show_tab_type = 0     
 
 "---------- BASE PLUGINS ----------
@@ -36,24 +40,41 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim'
-Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
+Plug 'matze/vim-move'
+Plug 'ryanoasis/vim-devicons'
+Plug 'sheerun/vim-polyglot'
+
+" nerd tree
+Plug 'preservim/nerdtree'
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '*'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
 
 " snippets
-Plug 'honza/vim-snippets'
+ Plug 'honza/vim-snippets'
 " Plug 'SirVer/ultisnips'
-Plug 'grvcoelho/vim-javascript-snippets'
+ Plug 'mlaursen/vim-react-snippets'
 
 " typescript | javascript
-Plug 'leafgarland/typescript-vim'
-
-Plug 'pangloss/vim-javascript'
-let g:javascript_plugin_jsdoc = 1
+ Plug 'leafgarland/typescript-vim'
+ Plug 'pangloss/vim-javascript'
 
 " jsx | tsx
-Plug 'MaxMEllon/vim-jsx-pretty'
+ Plug 'MaxMEllon/vim-jsx-pretty'
+ Plug 'mxw/vim-jsx'
+
 
 " prettier config
 Plug 'prettier/vim-prettier', {
@@ -63,22 +84,26 @@ Plug 'prettier/vim-prettier', {
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
-"---- will know this later ------
-" let g:prettier#autoformat_config_present = 1 
-" let g:prettier#autoformat_config_files = ['.prettierrc']
+"---- if auto prettier need ------
 " autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 
 " coc config 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" autocomplete and auto import -> <c-y>
+Plug 'neoclide/coc.nvim', {'branch': 'master','do': 'yarn install --frozen-lockfile'}
+
 let g:coc_global_extensions = [
+    \'coc-css',
+    \'coc-python',
+    \'coc-snippets',
 		\'coc-tsserver',
-		\'coc-eslint'
+		\'coc-eslint',
+		\'coc-json',
 \	]
 
-" telescope config
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
+" telescope config 
+ Plug 'nvim-lua/plenary.nvim'
+ Plug 'nvim-telescope/telescope.nvim'
 nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -86,7 +111,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
 " -------- MAPS --------
-
 map nt <cmd>tabnew<cr>
 map ct <cmd>tabclose<cr>
 

@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+neofetch
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load --- if set to "random", it will
@@ -66,7 +67,11 @@ ZSH_THEME="jispwoso"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+	zsh-completions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,7 +106,8 @@ alias s="sudo"
 alias server="cd /srv/http"
 alias zshconf="nvim ~/.zshrc"
 alias i3conf="nvim ~/.config/i3/config"
-alias comptconf="nvim ~/.config/compton.conf"
+alias picomconf="nvim ~/.config/picom.conf"
+alias alconf="nvim ~/.config/alacritty/alacritty.yml"
 alias config="cd ~/.config"
 alias pbconf="cd ~/.config/polybar"
 alias fm="ranger"
@@ -121,11 +127,8 @@ alias ttyc="tty-clock -c -C 4"
 alias clear-cache="sudo rm -rf /var/cache/*"
 alias import-gpg="gpg --keyserver keys.gnupg.net --recv-keys"
 plugins=( 
-
-    zsh-autosuggestions
-	zsh-completions
-)
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+  )
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6083b3,bg=transparent"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 export NVM_DIR="$HOME/.nvm"

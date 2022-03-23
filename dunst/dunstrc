@@ -27,7 +27,7 @@
     width = 300
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = 200
 
     # Position the notification in the top right corner
     origin = bottom-right
@@ -36,7 +36,7 @@
     offset = 10x50
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 0
+    scale = 1.1
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 0
@@ -68,12 +68,12 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 50 
+    transparency =  10
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 10
 
     # Padding between text and separator.
     padding = 8
@@ -89,7 +89,7 @@
     frame_width = 0 
 
     # Defines color of the frame around the notification window.
-    frame_color = "#03a1fc"
+    frame_color = "#1a1b38"
 
     # Define a color for the separator.
     # possible values are:
@@ -229,7 +229,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 5
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -292,7 +292,7 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#001b87"
+    background = "#1a1b38"
     foreground = "#f3f3f3"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable

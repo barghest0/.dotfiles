@@ -184,11 +184,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 1 
+for_window [class="^.*"] border pixel 0 
 
 # Set inner/outer gaps
-gaps inner 4	
-gaps outer	4		 
+gaps inner 4
+gaps outer 1	 
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -220,8 +220,8 @@ mode "$mode_gaps" {
 #bar {
 #        status_command i3status -c ~/.config/i3status/i3status.conf
 #}
-exec_always feh --bg-scale ~/wallpaper.jpg 
-exec_always --no-startup-id compton
+exec_always feh --bg-fill ~/wallpaper2.jpg 
+exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id ~/.config/polybar/forest/launch.sh
 exec_always --no-startup-id flameshot
 exec_always "setxkbmap -layout us,ru"
