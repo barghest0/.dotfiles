@@ -119,18 +119,20 @@ alias pacr="sudo pacman -R"
 alias yays="yay -S"
 alias yayr="yay -R"
 alias bctl="bluetoothctl"
-alias layout="cd /srv/http/toxin"
+alias toxin="cd /srv/http/toxin"
 alias slider="cd /srv/http/slider-plugin"
+alias test="cd /srv/http/test"
 alias df="cd ~/.dotfiles"
 alias treasure="cd /srv/http/treasure"
 alias ttyc="tty-clock -c -C 4"
 alias clear-cache="sudo rm -rf /var/cache/*"
+alias downloads="cd ~/Загрузки"
 alias import-gpg="gpg --keyserver keys.gnupg.net --recv-keys"
 plugins=( 
   )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6083b3,bg=transparent"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
+bindkey '^ ' autosuggest-accept
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
