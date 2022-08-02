@@ -3,6 +3,8 @@ set number
 syntax enable
 set encoding=utf-8
 set title
+set noswapfile
+set relativenumber
 set autoindent
 set background=dark
 set completeopt=menuone,noinsert,noselect
@@ -28,11 +30,10 @@ set nowrap
 set backspace=start,eol,indent
 set path+=**
 set wildignore+=*/node_modules/*
-autocmd InsertLeave * set nopaste
 set formatoptions+=r
+autocmd InsertLeave * set nopaste
 
 call plug#begin()
-
 
 "---------- APPEARANCE ----------
 " airline
@@ -67,12 +68,13 @@ Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 Plug 'matze/vim-move'
 Plug 'ryanoasis/vim-devicons'
-Plug 'windwp/nvim-autopairs'
-Plug 'windwp/nvim-ts-autotag'
+Plug 'alvan/vim-closetag'
+Plug  'jiangmiao/auto-pairs' 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 
 
@@ -98,6 +100,7 @@ let g:gitgutter_sign_modified_removed = '-'
 " react
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " snippets
 Plug 'SirVer/ultisnips'
@@ -105,6 +108,8 @@ Plug 'mlaursen/vim-react-snippets'
 Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<C-x>"
 
+" pug
+Plug 'digitaltoad/vim-pug'
 
 
 " prettier
