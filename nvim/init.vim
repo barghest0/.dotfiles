@@ -1,6 +1,5 @@
 set nocompatible
 set number
-syntax enable
 set encoding=utf-8
 set title
 set noswapfile
@@ -21,7 +20,6 @@ set nosc noru nosm
 set lazyredraw
 set ignorecase
 set smarttab
-filetype plugin indent on
 set shiftwidth=2
 set tabstop=2
 set ai 
@@ -31,7 +29,9 @@ set backspace=start,eol,indent
 set path+=**
 set wildignore+=*/node_modules/*
 set formatoptions+=r
+filetype plugin indent on
 autocmd InsertLeave * set nopaste
+syntax enable
 
 call plug#begin()
 
@@ -60,22 +60,25 @@ let g:airline#extensions#tabline#show_tab_type = 0
 
 
 
-
-
 "---------- BASE PLUGINS ----------
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
+
+Plug 'numToStr/Comment.nvim'
+
+
 Plug 'ap/vim-css-color'
 Plug 'matze/vim-move'
 Plug 'ryanoasis/vim-devicons'
 Plug 'alvan/vim-closetag'
-Plug  'jiangmiao/auto-pairs' 
+Plug 'jiangmiao/auto-pairs' 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
+Plug 'preservim/tagbar'
+Plug 'pangloss/vim-javascript'
+" Plug 'romgrk/barbar.nvim'
 
 
 " nerd tree
@@ -88,6 +91,8 @@ nnoremap <C-f> :NERDTreeFind<CR>
 
 " git
 Plug 'tpope/vim-fugitive'
+Plug 'kdheepak/lazygit.nvim'
+
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '*'
@@ -95,18 +100,24 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
 let g:gitgutter_sign_modified_removed = '-'
 
+Plug 'f-person/git-blame.nvim'
+let g:gitblame_enabled = 0
 
 
 " react
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'mxw/vim-jsx'
+autocmd FileType typescript.tsx setlocal commentstring=//\ %s
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
 
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
 Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<C-x>"
+
 
 " pug
 Plug 'digitaltoad/vim-pug'
@@ -123,33 +134,49 @@ let g:prettier#autoformat_require_pragma = 0
 "---- if auto prettier need ------
 " autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 
-
-
-
 " coc 
 Plug 'neoclide/coc.nvim', {'branch': 'master','do': 'yarn install --frozen-lockfile'}
 
 let g:coc_global_extensions = [
 		\'coc-tsserver',
+		\'coc-eslint',
+		\'coc-json',
 \	]
-
-
 
 
 
 " telescope 
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
+
 nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep find_command=rg,--ignore="node_modules,yarn.log,package.json.lock",--hidden,--files<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 call plug#end()
 
+lua require('Comment').setup()
+
 " -------- MAPS --------
+" tabs
 map nt <cmd>tabnew<cr>
 map ct <cmd>tabclose<cr>
+
+" git 
+map gbd <cmd>:GitBlameDisable<cr>
+map gbe <cmd>:GitBlameEnable<cr>
+map giti <cmd>:LazyGit<cr>
+
+" tagbar
+map tb <cmd>:TagbarToggle<CR>
+
+" regexp
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
-inoremap <expr> <Tab> pumvisible() ? "\<C-x>" : "\<Tab>"
+
+" auto-completion
+inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
+
+" delete without copy
+nnoremap <leader>d "_d
 
