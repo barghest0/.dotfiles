@@ -78,6 +78,7 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'preservim/tagbar'
 Plug 'pangloss/vim-javascript'
+Plug 'declancm/cinnamon.nvim'
 " Plug 'romgrk/barbar.nvim'
 
 
@@ -156,7 +157,15 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 call plug#end()
 
+" --------- LUA SETUPS ----------
+
 lua require('Comment').setup()
+lua require('cinnamon').setup()
+
+
+
+
+
 
 " -------- MAPS --------
 " tabs
