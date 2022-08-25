@@ -31,6 +31,8 @@ set wildignore+=*/node_modules/*
 set formatoptions+=r
 filetype plugin indent on
 autocmd InsertLeave * set nopaste
+
+
 syntax enable
 
 call plug#begin()
@@ -62,10 +64,7 @@ let g:airline#extensions#tabline#show_tab_type = 0
 
 "---------- BASE PLUGINS ----------
 Plug 'tpope/vim-surround'
-
 Plug 'numToStr/Comment.nvim'
-
-
 Plug 'ap/vim-css-color'
 Plug 'matze/vim-move'
 Plug 'ryanoasis/vim-devicons'
@@ -109,7 +108,6 @@ let g:gitblame_enabled = 0
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mxw/vim-jsx'
-autocmd FileType typescript.tsx setlocal commentstring=//\ %s
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 
@@ -136,7 +134,19 @@ let g:prettier#autoformat_require_pragma = 0
 " autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 
 " coc 
-Plug 'neoclide/coc.nvim', {'branch': 'master','do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release','do': 'yarn install --frozen-lockfile'}
+
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 let g:coc_global_extensions = [
 		\'coc-tsserver',

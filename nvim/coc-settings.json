@@ -1,4 +1,38 @@
 {
   "javascript.suggest.autoImports": true,
-  "typescript.suggest.autoImports": true
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enable": true,
+  "typescript.suggest.includeCompletionsWithSnippetText": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "dialog.floatHighlight": "#fff",
+  "dialog.floatBorderHighlight": "#fff",
+  "dialog.maxWidth": 100,
+  "dialog.maxHeight": 20,
+  "suggest.floatConfig": {
+    "highlight": "#fff",
+    "border": true,
+    "borderhighlight": "#fff"
+  },
+  "hover.floatConfig": {
+    "highlight": "#fff",
+    "border": true,
+    "borderhighlight": "#fff"
+  },
+  "diagnostic.floatConfig": {
+    "highlight": "#fff",
+    "border": true,
+    "borderhighlight": "#fff"
+  },
+  "signature.floatConfig": {
+    "highlight": "#fff",
+    "border": true,
+    "borderhighlight": "#fff"
+  }
 }
