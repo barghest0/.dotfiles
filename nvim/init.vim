@@ -29,6 +29,8 @@ set backspace=start,eol,indent
 set path+=**
 set wildignore+=*/node_modules/*
 set formatoptions+=r
+set filetype=typescript.tsx
+
 filetype plugin indent on
 autocmd InsertLeave * set nopaste
 
@@ -136,8 +138,8 @@ let g:prettier#autoformat_require_pragma = 0
 " coc 
 Plug 'neoclide/coc.nvim', {'branch': 'release','do': 'yarn install --frozen-lockfile'}
 
-nmap <leader>do <Plug>(coc-codeaction)
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>da <Plug>(coc-codeaction)
+nmap <leader>rr <Plug>(coc-rename)
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
