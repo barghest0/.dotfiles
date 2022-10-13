@@ -1,14 +1,13 @@
 {
   "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enable": true,
   "typescript.suggest.autoImports": true,
   "typescript.updateImportsOnFileMove.enable": true,
   "typescript.suggest.includeCompletionsWithSnippetText": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "typescript.autoClosingTags": true,
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
+  "coc.preferences.formatOnSaveFiletypes": [],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
   "dialog.floatHighlight": "#fff",
