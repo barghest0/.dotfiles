@@ -1,6 +1,11 @@
 require('Comment').setup()
 require('cinnamon').setup()
-require('goto-preview').setup {
-  default_mappings = true
-}
+require('telescope').setup({
+  extensions = {
+    coc = {
+        prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+    }
+  },
+})
+
 

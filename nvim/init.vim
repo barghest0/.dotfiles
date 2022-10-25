@@ -138,13 +138,14 @@ let g:prettier#autoformat_require_pragma = 0
 " coc 
 Plug 'neoclide/coc.nvim', {'branch': 'release','do': 'yarn install --frozen-lockfile'}
 
-nmap <leader>da <Plug>(coc-codeaction)
-nmap <leader>rr <Plug>(coc-rename)
-nmap <leader>qf <Plug>(coc-fix-current)
-nmap <leader>gt <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader>gr <Plug>(coc-references)
-nmap <leader>gd <Plug>(coc-definition)
+nmap <leader> da <Plug>(coc-codeaction)
+nmap <leader> rr <Plug>(coc-rename)
+nmap <leader> qf <Plug>(coc-fix-current)
+
+nmap <silent> gd <cmd>Telescope coc definitions<CR>
+nmap <silent> gi <cmd>Telescope coc implementations<CR>
+nmap <silent> gr <cmd>Telescope coc references<CR>
+nmap <silent> gtd <cmd>Telescope coc type_definitions<CR>
 
 nnoremap <silent>K :call ShowDocumentation()<CR>
 
@@ -167,6 +168,7 @@ let g:coc_global_extensions = [
 " telescope 
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
+ Plug 'fannheyward/telescope-coc.nvim'
 
 
 nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
@@ -184,6 +186,16 @@ lua << EOF
   require('Comment').setup()
   require('cinnamon').setup()
   require('notify')
+  require('telescope').setup({
+    extensions = {
+        coc = {
+          prefer_locations = true
+        }
+    }
+  })
+  require('telescope').load_extension('coc')
+
+  require('telescope').load_extension('coc')
 EOF
 
 " -------- MAPS --------
