@@ -138,14 +138,14 @@ let g:prettier#autoformat_require_pragma = 0
 " coc 
 Plug 'neoclide/coc.nvim', {'branch': 'release','do': 'yarn install --frozen-lockfile'}
 
-nmap <leader> da <Plug>(coc-codeaction)
-nmap <leader> rr <Plug>(coc-rename)
-nmap <leader> qf <Plug>(coc-fix-current)
+nmap <leader>da <Plug>(coc-codeaction)
+nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>qf <Plug>(coc-fix-current)
 
-nmap <silent> gd <cmd>Telescope coc definitions<CR>
-nmap <silent> gi <cmd>Telescope coc implementations<CR>
-nmap <silent> gr <cmd>Telescope coc references<CR>
-nmap <silent> gtd <cmd>Telescope coc type_definitions<CR>
+nmap <silent>gd <cmd>Telescope coc definitions<CR>
+nmap <silent>gi <cmd>Telescope coc implementations<CR>
+nmap <silent>gr <cmd>Telescope coc references<CR>
+nmap <silent>gtd <cmd>Telescope coc type_definitions<CR>
 
 nnoremap <silent>K :call ShowDocumentation()<CR>
 
