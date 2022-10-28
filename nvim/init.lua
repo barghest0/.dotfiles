@@ -1,4 +1,6 @@
 require('plugins.index')
 require('maps.nerdtree')
+require('maps.telescope')
+require('maps.coc')
 require('common.index')
 require('setups.index')

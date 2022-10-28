@@ -140,7 +140,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release','do': 'yarn install --frozen-lock
 
 nmap <leader>da <Plug>(coc-codeaction)
 nmap <leader>rr <Plug>(coc-rename)
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>qf <Plug>(coc-fix-current)
+
+nmap <silent>gd <cmd>Telescope coc definitions<CR>
+nmap <silent>gi <cmd>Telescope coc implementations<CR>
+nmap <silent>gr <cmd>Telescope coc references<CR>
+nmap <silent>td <cmd>Telescope coc type_definitions<CR>
 
 nnoremap <silent>K :call ShowDocumentation()<CR>
 
@@ -163,6 +168,7 @@ let g:coc_global_extensions = [
 " telescope 
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
+ Plug 'fannheyward/telescope-coc.nvim'
 
 
 nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
@@ -180,20 +186,8 @@ lua << EOF
   require('Comment').setup()
   require('cinnamon').setup()
   require('notify')
-  require('goto-preview').setup {
-    width = 120; -- Width of the floating window
-    height = 15; -- Height of the floating window
-    border = {"↖", "─" ,"┐", "│", "┘", "─", "└", "│"}; -- Border characters of the floating window
-    default_mappings = false; -- Bind default mappings
-    debug = false; -- Print debug information
-    opacity = nil; -- 0-100 opacity level of the floating window where 100 is fully transparent.
-    resizing_mappings = false; -- Binds arrow keys to resizing the floating window.
-    post_open_hook = nil; -- A function taking two arguments, a buffer and a window to be ran as a hook.
-    focus_on_open = true; -- Focus the floating window when opening it.
-    dismiss_on_move = false; -- Dismiss the floating window when moving the cursor.
-    force_close = true, -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
-    bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
-  }
+  require('telescope').load_extension('coc')
+  require('telescope').load_extension('notify')
 EOF
 
 " -------- MAPS --------
@@ -201,8 +195,6 @@ EOF
 map nt <cmd>tabnew<cr>
 map ct <cmd>tabclose<cr>
 
-nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
-nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
 
 " git 
 map gbd <cmd>:GitBlameDisable<cr>
