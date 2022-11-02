@@ -106,7 +106,7 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-bindsym $mod+F1 exec google-chrome-stable
+bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec ~/.config/polybar/forest/scripts/launcher.sh
 bindsym $mod+F3 exec marktext
 bindsym $mod+F4 exec ~/.tor/Browser/start-tor-browser
@@ -184,11 +184,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 0 
+for_window [class="^.*"] border pixel 0
 
 # Set inner/outer gaps
 gaps inner 4
-gaps outer 1	 
+gaps outer 4
+
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -217,13 +218,16 @@ mode "$mode_gaps" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#        status_command i3status -c ~/.config/i3status/i3status.conf
-#}
-exec_always feh --bg-fill ~/wallpaper2.jpg 
-exec_always --no-startup-id picom --experimental-backends
-exec_always --no-startup-id ~/.config/polybar/forest/launch.sh
-exec_always --no-startup-id flameshot
+bar {
+}
+
+exec_always xrandr --output  HDMI-0 --left-of DVI-D-0
+
 exec_always "setxkbmap -layout us,ru"
 exec_always "setxkbmap -option 'grp:alt_shift_toggle'"
-
+exec_always feh --bg-fill ~/job/wallpaper.jpg 
+exec_always --no-startup-id picom --experimental-backends
+# exec_always --no-startup-id ~/.config/polybar/forest/launch.sh
+exec_always --no-startup-id flameshot
+exec_always --no-startup-id dunst
+exec_always "xset r rate 180 25"
