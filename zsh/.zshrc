@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-neofetch
+fastfetch
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load --- if set to "random", it will
@@ -101,10 +101,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nv="nvim"
-alias nvconf="nvim ~/.config/nvim/init.vim"
+alias nvconf="nvim ~/.dotfiles/nvim/init.vim"
 alias s="sudo"
 alias server="cd /srv/http"
-alias zshconf="nvim ~/.zshrc"
+alias zshconf="nvim ~/.dotfiles/zsh/.zshrc"
 alias i3conf="nvim ~/.config/i3/config"
 alias picomconf="nvim ~/.config/picom.conf"
 alias alconf="nvim ~/.config/alacritty/alacritty.yml"
