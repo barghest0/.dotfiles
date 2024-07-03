@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nv="nvim"
-alias nvconf="nvim ~/.dotfiles/nvim/init.vim"
+alias nvconf="cd ~/.dotfiles/nvim"
 alias s="sudo"
 alias server="cd /srv/http"
 alias zshconf="nvim ~/.dotfiles/zsh/.zshrc"
