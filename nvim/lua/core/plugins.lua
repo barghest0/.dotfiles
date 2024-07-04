@@ -10,6 +10,7 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim" },
 
+
     -- treesitter
     { "nvim-treesitter/nvim-treesitter" },
 
@@ -25,6 +26,18 @@ require("lazy").setup({
     { 'hrsh7th/cmp-path' },
     { 'hrsh7th/cmp-cmdline' },
     { 'hrsh7th/nvim-cmp' },
+
+    -- autopairs
+    {
+      'windwp/nvim-autopairs',
+      event = "InsertEnter",
+      config = true
+    },
+
+    -- global replace
+    {
+      'nvim-pack/nvim-spectre'
+    },
 
     -- git
     {
@@ -50,6 +63,35 @@ require("lazy").setup({
     {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+
+    -- snippets
+    {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      build = "make install_jsregexp",
+      after = 'nvim-cmp',
+    },
+    {
+      'SirVer/ultisnips'
+    },
+    {
+      'honza/vim-snippets'
+    },
+
+
+
+    -- multi cursors
+    {
+      "mg979/vim-visual-multi",
+
+    },
+
+    -- surround
+    {
+      "kylechui/nvim-surround",
+      version = "*", -- Use for stability; omit to use `main` branch for the latest features
+      event = "VeryLazy",
     },
 
     -- mason (download formatters & linters)
