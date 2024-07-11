@@ -10,6 +10,20 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim" },
 
+    {
+      'karb94/neoscroll.nvim',
+      config = function()
+        require('neoscroll').setup({})
+      end
+    },
+
+    -- terminal
+    {
+      'akinsho/toggleterm.nvim',
+      version = "*",
+      config = true
+    },
+
 
     -- treesitter
     { "nvim-treesitter/nvim-treesitter" },
