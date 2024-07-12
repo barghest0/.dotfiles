@@ -60,3 +60,8 @@ yay -S polybar-dwm-git
 yay -S yajl
 
 yay -S flameshot
+
+yay -S obsidian
+yay -S syncthing
+sudo systemctl enable syncthing@barghest.service
+sudo systemctl start syncthing@barghest.service
