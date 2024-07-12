@@ -27,6 +27,7 @@ sudo pacman -S neovim
 yay -S python python-pynvim
 ln -sr ~/.dotfiles/nvim ~/.config
 sudo pacman -S cmake luarocks
+yay -S lua-language-server
 yay -S fzfx
 
 sudo pacman -S zsh
@@ -61,6 +62,7 @@ yay -S yajl
 
 yay -S flameshot
 
+git clone git@github.com:barghest0/study-notes.git ~/notes
 yay -S obsidian
 yay -S syncthing
 sudo systemctl enable syncthing@barghest.service

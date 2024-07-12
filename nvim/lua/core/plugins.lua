@@ -10,6 +10,7 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim" },
 
+    { "fedepujol/move.nvim", },
     {
       'karb94/neoscroll.nvim',
       config = function()
@@ -86,9 +87,9 @@ require("lazy").setup({
       build = "make install_jsregexp",
       after = 'nvim-cmp',
     },
-    {
-      'SirVer/ultisnips'
-    },
+    -- {
+    -- 'SirVer/ultisnips'
+    -- },
     {
       'honza/vim-snippets'
     },
