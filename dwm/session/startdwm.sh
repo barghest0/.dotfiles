@@ -1,6 +1,7 @@
 #!/bin/sh
 
 setxkbmap us,ru -option 'grp:ctrl_space_toggle'
+systemctl --user start dunst.service
 feh --bg-center ~/.dotfiles/wallpapers/vagabond.jpg
 xset r rate 180 25
 

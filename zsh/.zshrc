@@ -129,7 +129,10 @@ alias ttyc="tty-clock -c -C 4"
 alias clear-cache="sudo rm -rf /var/cache/*"
 alias downloads="cd ~/Загрузки"
 alias startdwm="sudo nvim /usr/local/bin/startdwm.sh"
+alias restartdwm="/usr/local/bin/startdwm.sh"
 alias import-gpg="gpg --keyserver keys.gnupg.net --recv-keys"
+alias tx="cd ~/job/timvex"
+alias zont="cd ~/job/server"
 plugins=( 
   )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6083b3,bg=transparent"

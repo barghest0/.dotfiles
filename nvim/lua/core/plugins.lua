@@ -1,57 +1,134 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable",
-    lazypath })
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup({
+
   spec = {
     { "LazyVim/LazyVim" },
-
-    { "fedepujol/move.nvim", },
+    { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
     {
-      'karb94/neoscroll.nvim',
+      "MaximilianLloyd/ascii.nvim",
+      requires = {
+        "MunifTanjim/nui.nvim"
+      }
+    },
+    {
+      'nvimdev/dashboard-nvim',
+      event = 'VimEnter',
       config = function()
-        require('neoscroll').setup({})
-      end
+        local ascii = require('ascii')
+        require('dashboard').setup {
+          theme = "doom",
+          disable_move = true,
+          config = {
+
+
+          }
+        }
+      end,
+      dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+    },
+    {
+      "folke/ts-comments.nvim",
+      opts = {},
+      event = "VeryLazy",
+      enabled = vim.fn.has("nvim-0.10.0") == 1,
+    },
+    {
+      "folke/todo-comments.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      opts = {
+      }
+    },
+    { 'rcarriga/nvim-notify' },
+
+    { "fedepujol/move.nvim" },
+    {
+      "karb94/neoscroll.nvim",
+      config = function()
+        require("neoscroll").setup({})
+      end,
     },
 
     -- terminal
     {
-      'akinsho/toggleterm.nvim',
+      "akinsho/toggleterm.nvim",
       version = "*",
-      config = true
+      config = true,
     },
-
 
     -- treesitter
     { "nvim-treesitter/nvim-treesitter" },
 
-    -- lsm
-    { "neovim/nvim-lspconfig" },
+    -- lsp
+    {
+      "neovim/nvim-lspconfig",
+      dependencies = {
+        "mason.nvim",
+        { "williamboman/mason-lspconfig.nvim", config = function() end },
+      },
+    },
+    {
+      "antosha417/nvim-lsp-file-operations",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-neo-tree/neo-tree.nvim",
+      },
+      config = function()
+        require("lsp-file-operations").setup()
+      end,
+    },
+    {
+      "pmizio/typescript-tools.nvim",
+      dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      opts = {},
+    },
+    {
+      "aznhe21/actions-preview.nvim",
+      config = function()
+        vim.keymap.set({ "v", "n" }, "<leader>da", require("actions-preview").code_actions)
+      end,
+    },
 
     -- scheme
     { "folke/tokyonight.nvim" },
 
     -- cmp
-    { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/cmp-buffer' },
-    { 'hrsh7th/cmp-path' },
-    { 'hrsh7th/cmp-cmdline' },
-    { 'hrsh7th/nvim-cmp' },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
+    { "hrsh7th/cmp-cmdline" },
+    { "hrsh7th/nvim-cmp" },
+    { "quangnguyen30192/cmp-nvim-ultisnips" },
+    { "saadparwaiz1/cmp_luasnip" },
 
     -- autopairs
     {
-      'windwp/nvim-autopairs',
+      "windwp/nvim-autopairs",
       event = "InsertEnter",
-      config = true
+      config = true,
+    },
+    {
+      "windwp/nvim-ts-autotag",
+      event = "InsertEnter",
+      config = true,
     },
 
     -- global replace
     {
-      'nvim-pack/nvim-spectre'
+      "nvim-pack/nvim-spectre",
     },
 
     -- git
@@ -71,13 +148,19 @@ require("lazy").setup({
       -- setting the keybinding for LazyGit with 'keys' is recommended in
       -- order to load the plugin when the command is run for the first time
       keys = {
-        { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-      }
+        { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+      },
+    },
+    {
+      "FabijanZulj/blame.nvim",
+      config = function()
+        require("blame").setup()
+      end,
     },
 
     {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' }
+      "nvim-lualine/lualine.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     -- snippets
@@ -85,21 +168,21 @@ require("lazy").setup({
       "L3MON4D3/LuaSnip",
       version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
       build = "make install_jsregexp",
-      after = 'nvim-cmp',
+      after = "nvim-cmp",
     },
-    -- {
-    -- 'SirVer/ultisnips'
-    -- },
     {
-      'honza/vim-snippets'
+      "SirVer/ultisnips",
     },
-
-
+    {
+      "honza/vim-snippets",
+    },
+    {
+      "mlaursen/vim-react-snippets",
+    },
 
     -- multi cursors
     {
       "mg979/vim-visual-multi",
-
     },
 
     -- surround
@@ -110,16 +193,19 @@ require("lazy").setup({
     },
 
     -- mason (download formatters & linters)
-    { "williamboman/mason.nvim" },
+    {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+    },
 
     -- formatting (use formatters & linters)
-    { "stevearc/conform.nvim" },
+    { "stevearc/conform.nvim", opts = {} },
 
     -- telescope
     {
-      'nvim-telescope/telescope.nvim',
-      tag = '0.1.8',
-      dependencies = { 'nvim-lua/plenary.nvim' }
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.8",
+      dependencies = { "nvim-lua/plenary.nvim" },
     },
 
     -- tree
@@ -130,13 +216,12 @@ require("lazy").setup({
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
-      }
-    }
+      },
+    },
   },
 
   defaults = {
     lazy = false,
     version = false, -- always use the latest git commit
   },
-
 })

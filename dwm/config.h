@@ -112,6 +112,8 @@ static const unsigned int ulinevoffset = 0;     /* how far above the bottom of t
 static const int ulineall = 0;                  /* 1 to show underline on all tags, 0 for just the active ones */
 #endif // BAR_UNDERLINETAGS_PATCH
 
+static const char *prtscrcmd[] = { "flameshot", "gui", NULL};
+
 #if NAMETAG_PATCH
 #if NAMETAG_PREPEND_PATCH
 /* The format in which the tag is written when named. E.g. %d: %.12s will write the tag number
@@ -497,8 +499,9 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+	RULE(.class = "Google", .tags = 1 << 5)
+	RULE(.class = "Telegram", .tags = 1 << 6)
+	RULE(.class = "Timvex", .tags = 1 << 0)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -770,7 +773,7 @@ static const char *xkb_layouts[]  = {
 #endif // XKB_PATCH
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #if COMBO_PATCH && SWAPTAGS_PATCH && TAGOTHERMONITOR_PATCH
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      comboview,      {.ui = 1 << TAG} }, \
@@ -1154,6 +1157,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_Left,       tagandviewtoleft,       {0} }, // note keybinding conflict with placedir
 	{ MODKEY|ControlMask,           XK_Right,      tagandviewtoright,      {0} }, // note keybinding conflict with placedir
 	#endif // FOCUSADJACENTTAG_PATCH
+	{ MODKEY,           XK_Print,spawn,      {.v = prtscrcmd} }, 
 	#if TAGALL_PATCH
 	{ MODKEY|ShiftMask,             XK_F1,         tagall,                 {.v = "F1"} },
 	{ MODKEY|ShiftMask,             XK_F2,         tagall,                 {.v = "F2"} },

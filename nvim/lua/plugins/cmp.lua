@@ -1,10 +1,11 @@
 local cmp = require 'cmp'
 
-
 cmp.setup({
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body) -- For luasnip users.
+      vim.fn["UltiSnips#Anon"](args.body)      -- For `ultisnips` users.
+      vim.snippet.expand(args.body)            -- For native neovim snippets (Neovim v0.10+)
     end
   },
   window = {
@@ -33,7 +34,7 @@ cmp.setup({
     end, { "i", "s" })
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' }, { name = 'luasnip' },
+    { name = 'nvim_lsp' }, { name = 'luasnip' }, { name = 'ultisnips' }
   }, { { name = 'buffer' }, { name = 'nvim_lsp_signature_help' } })
 })
 
