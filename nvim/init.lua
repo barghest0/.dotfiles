@@ -2,7 +2,6 @@
 require('core.plugins')
 require('core.colors')
 require('core.configs')
-
 -- Plugins
 require('plugins.neotree')
 require('plugins.mason')
@@ -17,3 +16,8 @@ require('plugins.surround')
 require('plugins.spectre')
 require('plugins.toggleterm')
 require('plugins.move')
+require('plugins.file-operations')
+require('plugins.actions-preview')
+require('plugins.notify')
+require('plugins.bufferline')
+require('plugins.ts-tools')

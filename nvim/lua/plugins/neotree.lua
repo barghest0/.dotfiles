@@ -1,4 +1,4 @@
-
+vim.keymap.set('n', '<c-f>', ':Neotree reveal position=left<cr>')
 vim.keymap.set('n', '<c-t>', ':Neotree toggle<CR>')
 
 vim.fn.sign_define("DiagnosticSignError",

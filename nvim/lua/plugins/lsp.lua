@@ -1,5 +1,15 @@
 -- Sntup language servers.
+-- oo
 local lspconfig = require('lspconfig')
+
+require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+
+lspconfig.vtsls.setup({
+
+})
+
+lspconfig.gopls.setup({})
+
 lspconfig.pyright.setup {}
 lspconfig.lua_ls.setup {
   on_init = function(client)
@@ -19,13 +29,17 @@ lspconfig.lua_ls.setup {
     Lua = {}
   }
 }
-lspconfig.tsserver.setup {}
+
+lspconfig.tsserver.setup({
+})
+
+
 
 -- Global mappings.
 -- See :help vim.diagnostic.* for documentation on any of the below functions
-vim.keymap.set('n', '<leader>lD', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>pd', vim.diagnostic.goto_prev)
+vim.keymap.set('n', '<leader>nd', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.setloclist)
 
 
@@ -39,9 +53,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     local opts = { buffer = ev.buf }
 
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { remap = false, silent = true, buffer = ev.buf })
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<leader>da', vim.lsp.buf.code_action, opts)
   end
 })
