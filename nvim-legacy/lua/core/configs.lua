@@ -51,16 +51,3 @@ vim.opt.fillchars = {
   foldsep = "│",
   foldclose = "▸"
 }
-
-local cmd = vim.cmd
-
-cmd("set keymap=russian-jcukenwin")
-cmd("set iminsert=0")
-cmd("set imsearch=0")
-
-local keymap = vim.keymap
-
--- keymap.set({ "i", "n" }, "<C-l>", "<C-^>")
-keymap.set({ "v", "n" }, "<C-x>", '"_d')
-keymap.set({ "n", "v" }, "<C-p>", '"*p')
-keymap.set({ "n", "v" }, "<C-c>", '"*y')
