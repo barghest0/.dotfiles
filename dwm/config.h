@@ -13,7 +13,7 @@ static const unsigned int borderpx       = 1;   /* border pixel of windows */
  * automatically update with setborderpx. */
 static const unsigned int barborderpx    = 1;  /* border pixel of bar */
 #endif // BAR_BORDER_PATCH
-static const unsigned int snap           = 32;  /* snap pixel */
+static const unsigned int snap           = 0;  /* snap pixel */
 #if SWALLOW_PATCH
 static const int swallowfloating         = 0;   /* 1 means swallow floating windows by default */
 #endif // SWALLOW_PATCH
