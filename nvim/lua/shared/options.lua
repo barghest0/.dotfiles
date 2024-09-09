@@ -1,7 +1,8 @@
+vim.keymap.set("n", "<C-l>", ":noh<CR>", { silent = true })
+
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.o.swapfile = false
-
 
 vim.g.did_load_filetypes = 1
 vim.g.formatoptions = "qrn1"
@@ -42,25 +43,12 @@ vim.opt.smartindent = true
 
 -- Fillchars
 vim.opt.fillchars = {
-  vert = "│",
-  fold = "⠀",
-  eob = " ", -- suppress ~ at EndOfBuffer
-  -- diff = "⣿", -- alternatives = ⣿ ░ ─ ╱
-  msgsep = "‾",
-  foldopen = "▾",
-  foldsep = "│",
-  foldclose = "▸"
+	vert = "│",
+	fold = "⠀",
+	eob = " ", -- suppress ~ at EndOfBuffer
+	-- diff = "⣿", -- alternatives = ⣿ ░ ─ ╱
+	msgsep = "‾",
+	foldopen = "▾",
+	foldsep = "│",
+	foldclose = "▸",
 }
-
-local cmd = vim.cmd
-
-cmd("set keymap=russian-jcukenwin")
-cmd("set iminsert=0")
-cmd("set imsearch=0")
-
-local keymap = vim.keymap
-
--- keymap.set({ "i", "n" }, "<C-l>", "<C-^>")
-keymap.set({ "v", "n" }, "<C-x>", '"_d')
-keymap.set({ "n", "v" }, "<C-p>", '"*p')
-keymap.set({ "n", "v" }, "<C-c>", '"*y')
