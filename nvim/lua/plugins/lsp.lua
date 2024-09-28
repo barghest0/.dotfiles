@@ -73,7 +73,7 @@ return {
     dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig" }, -- Required
-      {                         -- Optional
+      {                            -- Optional
         "williamboman/mason.nvim",
         build = function()
           pcall(vim.cmd, "MasonUpdate")
@@ -82,9 +82,9 @@ return {
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },  -- Required
+      { "hrsh7th/nvim-cmp" },     -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" },  -- Required
+      { "L3MON4D3/LuaSnip" },     -- Required
       { "rafamadriz/friendly-snippets" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
@@ -164,6 +164,11 @@ return {
           vtsls = function()
             require("lspconfig.configs").vtsls = require("vtsls").lspconfig
             require("lspconfig").vtsls.setup({})
+          end,
+          kotlin_language_server = function()
+            require('lspconfig').kotlin_language_server.setup({
+              root_dir = require('lspconfig.util').root_pattern('settings.gradle', 'build.gradle', '.git'),
+            })
           end,
           lua_ls = function()
             local lua_opts = lsp.nvim_lua_ls()

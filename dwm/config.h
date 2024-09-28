@@ -37,7 +37,7 @@ static const char dwmdir[]               = "dwm";
 static const char localshare[]           = ".local/share";
 #endif // AUTOSTART_PATCH
 #if BAR_ANYBAR_PATCH
-static const int usealtbar               = 1;        /* 1 means use non-dwm status bar */
+static const int usealtbar               = 0;        /* 1 means use non-dwm status bar */
 static const char *altbarclass           = "Polybar"; /* Alternate bar class name */
 static const char *altbarcmd             = "~/.dwm/autostart"; /* Alternate bar launch command */
 #endif // BAR_ANYBAR_PATCH
@@ -56,7 +56,7 @@ static const int showtab                 = showtab_auto;        /* Default tab b
 static const int toptab                  = False;               /* False means bottom tab bar */
 #endif // TAB_PATCH
 #if BAR_HEIGHT_PATCH
-static const int bar_height              = 0;   /* 0 means derive from font, >= 1 explicit height */
+static const int bar_height              = 1;   /* 0 means derive from font, >= 1 explicit height */
 #endif // BAR_HEIGHT_PATCH
 #if BAR_PADDING_PATCH
 static const int vertpad                 = 5;  /* vertical padding of bar */
