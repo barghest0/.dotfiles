@@ -1,6 +1,6 @@
 sudo pacman -S git
 git config --global user.email "a.bolshov@microline.ru"
-git config --global user.email "barghest"
+git config --global user.name "barghest"
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
 
