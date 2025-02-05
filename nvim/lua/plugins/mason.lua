@@ -23,6 +23,7 @@ return {
 				"ts_ls",
 				"vtsls",
 				"kotlin_language_server",
+				"jdtls",
 				"html",
 				"elixirls",
 				"tailwindcss",

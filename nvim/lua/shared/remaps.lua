@@ -201,3 +201,9 @@ vim.keymap.set("v", "<D-j>", ":MoveBlock(1)<CR>", opts)
 vim.keymap.set("v", "<D-k>", ":MoveBlock(-1)<CR>", opts)
 vim.keymap.set("v", "<D-h>", ":MoveHBlock(-1)<CR>", opts)
 vim.keymap.set("v", "<D-l>", ":MoveHBlock(1)<CR>", opts)
+
+-- copilot
+vim.api.nvim_set_keymap("v", "<leader>cc", ":CopilotChat<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>ce", ":CopilotChatExplain<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>cf", ":CopilotChatFix<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })

@@ -133,6 +133,9 @@ alias restartdwm="/usr/local/bin/startdwm.sh"
 alias import-gpg="gpg --keyserver keys.gnupg.net --recv-keys"
 alias tx="cd ~/job/timvex"
 alias zont="cd ~/job/server"
+alias widget="cd ~/job/server/zont/app/zont-notification-widget/"
+alias build-zont="rm -rf platforms plugins && ./bin/app-prepare zont debug android --verbose && npx cordova build --debug --verbose"
+alias rebuild-zont="./bin/app-prepare zont debug android --verbose"
 plugins=( 
   )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6083b3,bg=transparent"
@@ -142,7 +145,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
