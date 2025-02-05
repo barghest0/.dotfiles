@@ -136,6 +136,9 @@ alias zont="cd ~/job/server"
 alias widget="cd ~/job/server/zont/app/zont-notification-widget/"
 alias build-zont="rm -rf platforms plugins && ./bin/app-prepare zont debug android --verbose && npx cordova build --debug --verbose"
 alias rebuild-zont="./bin/app-prepare zont debug android --verbose"
+alias dcdv="docker-compose down --volumes"
+alias dcub="docker-compose up --build"
+alias venv="virtualenv venv & source venv/bin/activate"
 plugins=( 
   )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6083b3,bg=transparent"
