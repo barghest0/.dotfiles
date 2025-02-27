@@ -207,3 +207,11 @@ vim.api.nvim_set_keymap("v", "<leader>cc", ":CopilotChat<CR>", { noremap = true,
 vim.api.nvim_set_keymap("v", "<leader>ce", ":CopilotChatExplain<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<leader>cf", ":CopilotChatFix<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<leader>ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>f", function()
+	require("conform").format({
+		lsp_fallback = true,
+		async = false,
+		timeout_ms = 1000,
+	})
+end, { desc = "Форматировать код" })
