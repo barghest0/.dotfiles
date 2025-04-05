@@ -138,6 +138,7 @@ alias build-zont="rm -rf platforms plugins && ./bin/app-prepare zont debug andro
 alias rebuild-zont="./bin/app-prepare zont debug android --verbose"
 alias dcdv="docker-compose down --volumes"
 alias dcub="docker-compose up --build"
+alias dcw="docker-compose watch"
 alias venv="virtualenv venv & source venv/bin/activate"
 plugins=( 
   )
