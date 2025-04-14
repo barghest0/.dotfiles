@@ -69,4 +69,30 @@ return {
 			})
 		end,
 	},
+	{
+		"karb94/neoscroll.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("neoscroll").setup({
+				easing_function = "quadratic", -- можешь выбрать "sine", "circular", и др.
+				hide_cursor = true,
+				stop_eof = false,
+				respect_scrolloff = false,
+				cursor_scrolls_alone = false,
+
+				-- актуальный способ задать бинды:
+				mappings = {
+					"<C-u>",
+					"<C-d>",
+					"<C-b>",
+					"<C-f>",
+					"<C-y>",
+					"<C-e>",
+					"zt",
+					"zz",
+					"zb",
+				},
+			})
+		end,
+	},
 }
