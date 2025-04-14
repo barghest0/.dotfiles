@@ -21,11 +21,9 @@ require("lazy").setup("plugins", {
 require("shared.remaps")
 require("shared.options")
 
-vim.g.copilot_proxy = "http://uvv44a:zXS34C@168.80.81.53:8000"
-
--- Или через переменные окружения:
-vim.env.HTTPS_PROXY = "http://uvv44a:zXS34C@168.80.81.53:8000"
-vim.env.HTTP_PROXY = "http://uvv44a:zXS34C@168.80.81.53:8000"
+-- vim.g.copilot_proxy = "http://uvv44a:zXS34C@168.80.81.53:8000"
+-- vim.env.HTTPS_PROXY = "http://uvv44a:zXS34C@168.80.81.53:8000"
+-- vim.env.HTTP_PROXY = "http://uvv44a:zXS34C@168.80.81.53:8000"
 
 vim.cmd("colorscheme tokyonight-night")
 vim.cmd("hi IlluminatedWordText guibg=none gui=underline")

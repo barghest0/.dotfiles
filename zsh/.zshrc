@@ -140,6 +140,9 @@ alias dcdv="docker-compose down --volumes"
 alias dcub="docker-compose up --build"
 alias dcw="docker-compose watch"
 alias venv="virtualenv venv & source venv/bin/activate"
+alias gfp="git add . && git commit --amend --no-edit && git push -f"
+alias d="docker"
+alias dc="docker-compose"
 plugins=( 
   )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6083b3,bg=transparent"
@@ -155,6 +158,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-export ANDROID_HOME=$HOME/Android/Sdk
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export ANDROID_HOME=/opt/android-sdk/
+export ANDROID_SDK_ROOT=/opt/android-sdk/
 export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$PATH:/sbin
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/barghest/job/app/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/barghest/job/app/node_modules/tabtab/.completions/electron-forge.zsh
