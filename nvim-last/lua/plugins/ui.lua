@@ -18,25 +18,6 @@ return {
 	},
 
 	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		confij = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"lua",
-					"typescript",
-					"tsx",
-					"go",
-					"rust",
-					"kotlin",
-					"json",
-				},
-				highlight = { enable = true },
-			})
-		end,
-	},
-
-	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
@@ -80,17 +61,9 @@ return {
 				respect_scrolloff = false,
 				cursor_scrolls_alone = false,
 
-				-- актуальный способ задать бинды:
 				mappings = {
 					"<C-u>",
 					"<C-d>",
-					"<C-b>",
-					"<C-f>",
-					"<C-y>",
-					"<C-e>",
-					"zt",
-					"zz",
-					"zb",
 				},
 			})
 		end,
