@@ -4,9 +4,10 @@ return {
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
 		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
-		{ "<leader>fr", "<cmd>Telescope jumplist<cr>", desc = "Jump List" },
+		{ "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Resume last Telescope" },
+
 		{
-			"<leader>fw",
+			"<leader>fg",
 			mode = "v",
 			function()
 				local text = table.concat(vim.fn.getline("'<", "'>"), "\n")

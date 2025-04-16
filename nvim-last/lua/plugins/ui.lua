@@ -18,6 +18,11 @@ return {
 	},
 
 	{
+		"aznhe21/actions-preview.nvim",
+		config = function() end,
+	},
+
+	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
